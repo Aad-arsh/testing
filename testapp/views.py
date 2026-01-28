@@ -120,20 +120,20 @@ class employeeAPIView(APIView):
 #             status=status.HTTP_204_NO_CONTENT
 #         )
 
-class TaskAPIView(APIView):
-    # GET (list)
-    def get(self, request):
-        items = Task.objects.all()
-        serializer = TaskSerializer(items, many=True) 
-        return Response(serializer.data) 
+# class TaskAPIView(APIView):
+#     # GET (list)
+#     def get(self, request):
+#         items = Task.objects.all()
+#         serializer = TaskSerializer(items, many=True) 
+#         return Response(serializer.data) 
 
-    # POST (create)
-    def post(self, request):
-        serializer = TaskSerializer(data=request.data) 
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     # POST (create)
+#     def post(self, request):
+#         serializer = TaskSerializer(data=request.data) 
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class TaskupdateAPIView(APIView):
