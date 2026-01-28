@@ -99,26 +99,26 @@ class employeeAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class employeeupdateAPIView(APIView):
-    def put(self, request, pk):
-        item = employee.objects.get(pk=pk) 
+# class employeeupdateAPIView(APIView):
+#     def put(self, request, pk):
+#         item = employee.objects.get(pk=pk) 
 
-        serializer = employeeSerializer(item, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
+#         serializer = employeeSerializer(item, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # DELETE
-    def delete(self, request, pk):
-        item = employee.objects.get(pk=pk)  
-        item.delete()
+#     # DELETE
+#     def delete(self, request, pk):
+#         item = employee.objects.get(pk=pk)  
+#         item.delete()
 
-        return Response(
-            {"message": "employee deleted successfully"},
-            status=status.HTTP_204_NO_CONTENT
-        )
+#         return Response(
+#             {"message": "employee deleted successfully"},
+#             status=status.HTTP_204_NO_CONTENT
+#         )
 
 class TaskAPIView(APIView):
     # GET (list)
